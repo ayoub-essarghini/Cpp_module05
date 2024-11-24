@@ -17,16 +17,12 @@ private:
     {
         public :
             const char *what() const throw();
-        // public :
-            // virtual ~GradeTooHighException();
     };
 
     class GradeTooLowException : public std::exception
     {
         public:
             const char *what() const throw();
-        // public :
-        // virtual ~GradeTooLowException();
     };
 
 public:
