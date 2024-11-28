@@ -1,33 +1,65 @@
-#include "includes/From.hpp"
+#include "includes/Form.hpp"
+#include "includes/Bureaucrat.hpp"
 
-
-Form::Form():grade(0),name("default"),isSigned(false)
+Form::Form(const std::string &name, int gradeToSign, int gradeToExecute)
+    : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
 {
-    cout << "Constructor invoked" << endl;
+    if (gradeToSign < 1 || gradeToExecute < 1)
+    {
+        throw GradeTooHighException();
+    }
+    if (gradeToSign > 150 || gradeToExecute > 150)
+    {
+        throw GradeTooLowException();
+    }
 }
 
-Form::Form(const string& _name,const int& _grade, const bool& _isSigned):name(_name),grade(_grade),isSigned(_isSigned)
+Form::~Form() {}
+
+const std::string &Form::getName() const
 {
-    cout << "Param Constructor invoked"<< endl;
+    return name;
 }
 
-const string Form::getName() const
+bool Form::getIsSigned() const
 {
-    return this->name;
+    return isSigned;
 }
 
-bool Form::getIsSigned()
+int Form::getGradeToSign() const
 {
-    return this->isSigned;
+    return gradeToSign;
 }
 
-const int Form::getGrade() const
+int Form::getGradeToExecute() const
 {
-    return this->grade;
+    return gradeToExecute;
 }
 
+void Form::beSigned(Bureaucrat &bureaucrat)
+{
+    if (bureaucrat.getGrade() > gradeToSign)
+    {
+        throw GradeTooLowException();
+    }
+    isSigned = true;
+}
 
+const char *Form::GradeTooHighException::what() const throw()
+{
+    return "Form Grade too high";
+}
 
+const char *Form::GradeTooLowException::what() const throw()
+{
+    return "Form Grade too low";
+}
 
-
-
+std::ostream &operator<<(std::ostream &out, const Form &form)
+{
+    out << "Form: " << form.getName()
+        << ", Signed: " << (form.getIsSigned() ? "Yes" : "No")
+        << ", Grade to Sign: " << form.getGradeToSign()
+        << ", Grade to Execute: " << form.getGradeToExecute();
+    return out;
+}

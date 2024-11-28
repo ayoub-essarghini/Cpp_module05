@@ -1,22 +1,33 @@
 #include "includes/Bureaucrat.hpp"
-void test1( void )
-{
-    Bureaucrat bureaucrat("test",2);
-    // bureaucrat.incrementGrade();
-    bureaucrat.decrementGrade();
-    bureaucrat.decrementGrade();
-    cout << bureaucrat << endl;
-}
 
 
-int main()
-{
-    try
-    {
-        test1();
+int main() {
+    try {
+        Bureaucrat john("John Doe", 2);
+        std::cout << john << std::endl;
+
+        john.incrementGrade();
+        std::cout << "After increment: " << john << std::endl;
+
+        john.decrementGrade();
+        std::cout << "After decrement: " << john << std::endl;
+
+        Bureaucrat tooHigh("High Ranker", 0);
+
+    } catch (const Bureaucrat::GradeTooHighException& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    } catch (const Bureaucrat::GradeTooLowException& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "General exception caught: " << e.what() << std::endl;
     }
-    catch ( const std::exception& e )
-    {
-        cout << e.what() << endl;
+
+    try {
+        Bureaucrat jane("Jane Smith", 150);
+        jane.decrementGrade();
+    } catch (const std::exception& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
     }
+
+    return 0;
 }
