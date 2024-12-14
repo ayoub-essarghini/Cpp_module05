@@ -13,11 +13,11 @@ private:
     const string name;
     int grade;
 
-  
-
 public:
     Bureaucrat();
     Bureaucrat(const string _name, int _grade);
+    Bureaucrat(const Bureaucrat& other);
+    Bureaucrat& operator=(const Bureaucrat& other);
     ~Bureaucrat();
     string getName();
     int getGrade();

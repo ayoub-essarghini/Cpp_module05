@@ -14,6 +14,18 @@ Form::Form(const std::string &name, int gradeToSign, int gradeToExecute)
     }
 }
 
+Form::Form(const Form &other)
+    : name(other.name), isSigned(other.isSigned), gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute) {}
+
+Form &Form::operator=(const Form &other)
+{
+    if (this != &other)
+    {
+        this->isSigned = other.isSigned;
+    }
+    return *this;
+}
+
 Form::~Form() {}
 
 const std::string &Form::getName() const

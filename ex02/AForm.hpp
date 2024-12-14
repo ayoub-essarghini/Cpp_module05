@@ -20,6 +20,10 @@ protected:
 
 public:
     AForm(const std::string &name, const std::string &target, int gradeToSign, int gradeToExecute);
+    AForm(const AForm &other);
+
+    AForm &operator=(const AForm &other);
+
     virtual ~AForm();
 
     const std::string &getName() const;

@@ -4,6 +4,18 @@
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
     : AForm("ShrubberyCreationForm", target, 145, 137) {}
 
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
+    : AForm(other)
+{
+    *this = other;
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
+{
+    AForm::operator=(other);
+    return *this;
+}
+
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
@@ -15,7 +27,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
     {
         throw std::ios_base::failure("Failed to create the shrubbery file");
     }
-    ofs << "         *\n"
+     ofs << "         *\n"
            "        /|\\\n"
            "       /*|O\\\n"
            "      /*/|\\*\\\n"

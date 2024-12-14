@@ -18,6 +18,18 @@ Bureaucrat::Bureaucrat(const string _name, int _grade) : name(_name), grade(_gra
     cout << "param Bureaucrat constructor called" << endl;
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat& other):name(other.name) {
+    this->grade = other.grade;
+    
+}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other){
+    if (this != &other) {
+        this->grade = other.grade;
+    }
+    return *this;
+}
+
 void Bureaucrat::incrementGrade() {
     if (grade - 1 < 1)
         throw GradeTooHighException();

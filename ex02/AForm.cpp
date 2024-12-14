@@ -9,7 +9,16 @@ AForm::AForm(const std::string &name, const std::string &target, int gradeToSign
     if (gradeToSign > 150 || gradeToExecute > 150)
         throw GradeTooLowException();
 }
-
+AForm::AForm(const AForm &other)
+    : name(other.name), isSigned(other.isSigned), gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute), target(other.target) {}
+AForm &AForm::operator=(const AForm &other)
+{
+    if (this != &other)
+    {
+        this->isSigned = other.isSigned;
+    }
+    return *this;
+}
 AForm::~AForm() {}
 
 const std::string &AForm::getName() const { return name; }

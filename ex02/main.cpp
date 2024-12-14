@@ -9,8 +9,8 @@ int main() {
         ShrubberyCreationForm shrub("home");
         RobotomyRequestForm robot("robot");
         PresidentialPardonForm pardon("criminal");
-
         shrub.beSigned(bob);
+        shrub.execute(bob);
         bob.executeForm(shrub);
 
         robot.beSigned(bob);

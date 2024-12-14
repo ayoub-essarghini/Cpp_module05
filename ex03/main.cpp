@@ -12,7 +12,7 @@ int main() {
             delete form;
         }
 
-        form = someRandomIntern.makeForm("shrubbery creation", "home");
+        form = someRandomIntern.makeForm("shrubbery creation", "");
         if (form) {
             std::cout << *form << std::endl;
             delete form;

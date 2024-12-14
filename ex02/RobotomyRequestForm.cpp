@@ -1,9 +1,21 @@
-#include "includes/RobotomyRequestForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include <cstdlib>
 #include <iostream>
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
     : AForm("RobotomyRequestForm", target, 72, 45) {}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
+    : AForm(other)
+{
+    *this = other;
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
+{
+    AForm::operator=(other);
+    return *this;
+}
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 

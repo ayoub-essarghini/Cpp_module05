@@ -26,7 +26,10 @@ public:
     public:
         const char *what() const throw();
     };
+
     Form(const std::string &name, int gradeToSign, int gradeToExecute);
+    Form(const Form &other);
+    Form &operator=(const Form &other);
     ~Form();
 
     const std::string &getName() const;

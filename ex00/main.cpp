@@ -3,7 +3,7 @@
 
 int main() {
     try {
-        Bureaucrat john("John Doe", 2);
+        Bureaucrat john("John Doe", 151);
         std::cout << john << std::endl;
 
         john.incrementGrade();
