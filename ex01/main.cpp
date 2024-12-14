@@ -1,5 +1,5 @@
-#include "includes/Bureaucrat.hpp"
-#include "includes/Form.hpp"
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main() {
     try {

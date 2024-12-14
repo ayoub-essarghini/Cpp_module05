@@ -1,4 +1,4 @@
-#include "includes/Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat()
 {

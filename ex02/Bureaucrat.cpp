@@ -1,5 +1,5 @@
-#include "includes/Bureaucrat.hpp"
-#include "includes/AForm.hpp"
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name), grade(grade) {
     if (grade < 1)

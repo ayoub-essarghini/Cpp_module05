@@ -1,4 +1,4 @@
-#include "includes/Intern.hpp"
+#include "Intern.hpp"
 
 Intern::Intern() {}
 Intern::Intern(const Intern& other) { (void)other; }
