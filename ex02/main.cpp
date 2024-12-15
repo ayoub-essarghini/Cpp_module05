@@ -10,12 +10,9 @@ int main() {
         PresidentialPardonForm pardon("criminal");
 
         ShrubberyCreationForm shrub("home");
-        ShrubberyCreationForm shrub2("home2");
-        shrub = shrub2;
         
 
         shrub.beSigned(bob);
-        shrub.execute(bob);
         bob.executeForm(shrub);
 
         robot.beSigned(bob);

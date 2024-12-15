@@ -3,23 +3,19 @@
 
 int main() {
     try {
-        // Create a Bureaucrat and Forms
         Bureaucrat john("John Doe", 2);
-        Form taxForm("Tax Form", 3, 10);
-        Form topSecret("Top Secret Form", 1, 5);
+        Form form1("Form 1", 3, 10);
+        Form form2("Form 2", 1, 5);
 
-        // Print initial state
         std::cout << john << std::endl;
-        std::cout << taxForm << std::endl;
-        std::cout << topSecret << std::endl;
+        std::cout << form1 << std::endl;
+        std::cout << form2 << std::endl;
 
-        // Attempt to sign forms
-        john.signForm(taxForm);
-        john.signForm(topSecret);
+        john.signForm(form1);
+        john.signForm(form2);
 
-        // Print final state
-        std::cout << taxForm << std::endl;
-        std::cout << topSecret << std::endl;
+        std::cout << form1 << std::endl;
+        std::cout << form2 << std::endl;
 
     } catch (const std::exception& e) {
         std::cerr << "Exception caught: " << e.what() << std::endl;
