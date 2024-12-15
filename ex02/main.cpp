@@ -6,9 +6,14 @@
 int main() {
     try {
         Bureaucrat bob("Bob", 12);
-        ShrubberyCreationForm shrub("home");
         RobotomyRequestForm robot("robot");
         PresidentialPardonForm pardon("criminal");
+
+        ShrubberyCreationForm shrub("home");
+        ShrubberyCreationForm shrub2("home2");
+        shrub = shrub2;
+        
+
         shrub.beSigned(bob);
         shrub.execute(bob);
         bob.executeForm(shrub);
